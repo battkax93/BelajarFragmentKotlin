@@ -21,4 +21,5 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getTargetContext()
         assertEquals("sunny.belajarfragmentkotlin", appContext.packageName)
     }
+
 }

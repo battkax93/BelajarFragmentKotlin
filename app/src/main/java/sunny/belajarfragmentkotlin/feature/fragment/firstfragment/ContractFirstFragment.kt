@@ -1,6 +1,7 @@
 package sunny.belajarfragmentkotlin.feature.fragment.firstfragment
 
 import android.content.Context
+import android.view.GestureDetector
 import android.view.View
 import sunny.belajarfragmentkotlin.adapter.StackAdapter
 import sunny.kotlinmoviechart.entity.model.Item
@@ -8,7 +9,7 @@ import sunny.kotlinmoviechart.entity.model.Item
 /**
  * Created by Wayan-MECS on 11/5/2018.
  */
-interface ContractFirstFragment {
+interface ContractFirstFragment{
     interface mainView{
         fun init(v: View)
         fun showLoading()

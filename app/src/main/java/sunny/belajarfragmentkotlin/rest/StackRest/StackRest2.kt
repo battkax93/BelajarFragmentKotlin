@@ -1,4 +1,4 @@
-package sunny.belajarfragmentkotlin.rest
+package sunny.belajarfragmentkotlin.rest.StackRest
 
 import retrofit2.http.GET
 import retrofit2.http.Query

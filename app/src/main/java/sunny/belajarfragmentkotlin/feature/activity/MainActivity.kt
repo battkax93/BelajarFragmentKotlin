@@ -1,5 +1,6 @@
 package sunny.belajarfragmentkotlin.feature.activity
 
+import android.gesture.Gesture
 import android.gesture.GestureStroke
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -17,9 +18,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 import sunny.belajarfragmentkotlin.R
 import sunny.belajarfragmentkotlin.feature.fragment.firstfragment.FirstFragment
 import sunny.belajarfragmentkotlin.feature.fragment.secondfragment.SecondFragment
+import sunny.belajarfragmentkotlin.feature.fragment.thirdfragment.ThirdFragment
 
 class MainActivity : FragmentActivity() {
 
+    lateinit var thrd: ThirdFragment
     lateinit var scnd: SecondFragment
     lateinit var frst: FirstFragment
     lateinit var nav: BottomNavigationView
@@ -28,6 +31,7 @@ class MainActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         loadFragment()
+        thrd = ThirdFragment()
         scnd = SecondFragment()
         frst = FirstFragment()
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
@@ -51,7 +55,7 @@ class MainActivity : FragmentActivity() {
             R.id.navigation_notifications -> {
 //                message.setText(R.string.title_notifications)
                 showToast()
-
+                replaceToast(thrd)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -78,7 +82,7 @@ class MainActivity : FragmentActivity() {
         transaction.commitAllowingStateLoss()
     }
 
-    fun playAnimation(v: View,action: String) {
+    fun playAnimation(v: View, action: String) {
         if (action == "down") {
             Log.d("flow", "slide up")
             YoYo.with(Techniques.SlideInUp)

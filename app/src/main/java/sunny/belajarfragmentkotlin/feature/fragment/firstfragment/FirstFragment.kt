@@ -1,11 +1,6 @@
 package sunny.belajarfragmentkotlin.feature.fragment.firstfragment
 
-import android.app.Dialog
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
@@ -13,18 +8,17 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.Window
 import android.widget.ProgressBar
 import sunny.belajarfragmentkotlin.R
 import sunny.belajarfragmentkotlin.adapter.StackAdapter
 import sunny.kotlinmoviechart.entity.model.Item
 import android.support.v7.widget.StaggeredGridLayoutManager
+import android.view.*
 import sunny.belajarfragmentkotlin.feature.SpacesItemDecoration
 import android.widget.AbsListView
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.sdk25.coroutines.__GestureOverlayView_OnGestureListener
+import sunny.belajarfragmentkotlin.feature.OnSwipeTouchListener
 import sunny.belajarfragmentkotlin.feature.activity.MainActivity
 
 
@@ -52,6 +46,7 @@ class FirstFragment : ContractFirstFragment.mainView, Fragment() {
         return first
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun init(v: View) {
 
         adapter = StackAdapter(requireContext(), itemss)
@@ -89,6 +84,7 @@ class FirstFragment : ContractFirstFragment.mainView, Fragment() {
                 }
             }
         })
+
     }
 
     override fun action() {
@@ -130,6 +126,7 @@ class FirstFragment : ContractFirstFragment.mainView, Fragment() {
     override fun hideLoading() {
         pBar.visibility = View.GONE
     }
+
 
 }
 
